@@ -23,9 +23,13 @@ object baigorria{
 	
 	var sueldo=0
 	var empanadasVendidas=0
+	var totalCobrado=sueldo
 	
 	method empanadasVendidas(cantDeEmpanadas){empanadasVendidas+=cantDeEmpanadas}
 	method empanadasVendidas(){return empanadasVendidas}
-	method pagoDeSueldo(){sueldo=self.empanadasVendidas()*15}
-	method sueldo(){return sueldo}
+	method pagoDeSueldo(){
+		sueldo=self.empanadasVendidas()*15  
+		totalCobrado+=sueldo
+		empanadasVendidas=0}
+	method totalCobrado(){return totalCobrado}
 }
