@@ -12,10 +12,30 @@ object gimenez{
 object galvan{
 	
 	var sueldo=15000
+	var deuda=0
+	var dinero=0
+	var faltante=0
+	var sobrante=0
 	
 	method sueldo(unSueldo){sueldo=unSueldo}
 	method sueldo(){return sueldo}
-	method pagoDeSueldo(){}
+	method pagoDeSueldo() {
+		if(deuda<=sueldo){
+			sobrante=sueldo-deuda
+			deuda=0
+			dinero+=sobrante
+		}
+		else{deuda-sueldo}}
+	
+	method gastar(unMonto){   //no aclara si no le alcanza suma todo el gasto a deuda, o solo el faltante dinero
+		if (dinero<unMonto){
+			faltante=unMonto-dinero
+			deuda+=faltante}
+		else{dinero-=unMonto}
+	}
+	
+	method deuda(){return deuda}
+	method dinero(){return dinero}
 
 }
 
